@@ -26,7 +26,7 @@ document.getElementById('fetch_link').addEventListener('click', function() {
 });
 
 document.getElementById('github_link').addEventListener('click', function() {
-    chrome.tabs.create({ url: 'https://github.com/cdsisthe1/fyoutube' });
+    chrome.tabs.create({ url: 'https://github.com/cdsisthe1/fyoutubepy' });
 });
 
 document.getElementById('donate_link').addEventListener('click', function() {
