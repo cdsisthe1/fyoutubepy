@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>fyoutube</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 20px;
+            background-color: #FFF;
+            color: #000;
+            text-align: center;
+            max-width: 350px;
+        }
+
+        #header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        #fyoutube_label {
+            display: flex;
+            align-items: center;
+        }
+
+        #action_container {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        #youtube_url {
+            flex: 1;
+            padding: 12px;
+            margin-right: 10px;  
+            background-color: #F0F0F0;
+            color: #000;
+            border: none;
+            border-radius: 25px;
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #button_container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+        button {
+            cursor: pointer;
+            padding: 12px 20px;
+            background-color: #000;
+            color: #FFF;
+            border: none;
+            border-radius: 25px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+            font-size: 1.1em;
+            letter-spacing: 1.2px;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #333;
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+            transform: translateY(-4px);
+        }
+
+        button:active {
+            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
+            transform: translateY(2px);
+        }
+
+        #result {
+            margin-top: 15px;
+            padding: 12px;
+            border-radius: 25px;
+            background-color: #F0F0F0;
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Toggle Switch Styles */
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 90px;
+            height: 34px;
+            vertical-align: middle;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #D3D3D3;
+            -webkit-transition: .4s;
+            transition: .4s;
+            border: 2px solid #AAA; /* 3D effect */
+        }
+
+		.slider:before {
+			position: absolute;
+			content: "";
+			height: 26px;
+			width: 26px;
+			left: 2px; /* Adjusted initial position */
+			bottom: 3px;
+			background-color: white;
+			-webkit-transition: .4s;
+			transition: .4s;
+			box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* 3D effect */
+			border-radius: 50%; /* Make it round */
+		}
+
+		input:checked + .slider:before {
+			-webkit-transform: translateX(56px); /* Adjusted translation */
+			-ms-transform: translateX(56px);
+			transform: translateX(56px);
+		}
+
+        .slider:after {
+            content: "OFF";
+            position: absolute;
+            color: black;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 15px;
+            font-size: 14px;
+            font-weight: bold;
+            transition: .4s;
+        }
+
+        input:checked + .slider {
+            background-color: #000;
+        }
+
+        input:checked + .slider:after {
+            content: "ON";
+            left: 15px;
+            right: unset;
+            color: #FFF;
+        }
+
+        .slider.round {
+            border-radius: 34px;
+        }
+
+        .slider.round:before, .slider.round:after {
+            border-radius: 50%;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="header">
+        <div id="fyoutube_label">
+            <img src="icon48.png" id="fyoutube_icon" alt="fyoutube icon">
+            <h2 style="margin: 0;">fyoutube</h2>
+        </div>
+        
+        <label class="switch">
+            <input type="checkbox" id="extensionToggle" checked> <!-- switch starts in the "ON" state -->
+            <span class="slider round"></span>
+        </label>
+    </div>
+
+    <div id="action_container">
+        <input type="text" id="youtube_url" placeholder="paste youtube url...">
+        <button id="fetch_link">get link</button>
+    </div>
+
+    <div id="result"></div>
+
+    <div id="button_container">
+        <button id="donate_link" onclick="window.open('https://www.paypal.com/donate/?hosted_button_id=R92KGPYHPE3JY', '_blank');">donation</button>
+        <button id="github_link" onclick="window.open('https://github.com/cdsisthe1/fyoutube', '_blank');">github</button>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+
+</html>
